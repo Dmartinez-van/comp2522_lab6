@@ -52,4 +52,14 @@ public class HockeyTeam
     {
         return teamRooster;
     }
+
+    /**
+     * Getter for team name
+     *
+     * @return the team name as a string
+     */
+    public String getTeamName()
+    {
+        return teamName;
+    }
 }
