@@ -1,7 +1,7 @@
 package ca.bcit.comp2522.lambdas;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.function.UnaryOperator;
 
 /**
  * Main class for running tests for comp 2522 lab 6
@@ -77,6 +77,16 @@ public class Main
         - Write a UnaryOperator<String> that converts a string to uppercase.
         - Use it to print all player names in uppercase.
         */
+        final UnaryOperator<String> namesToUpper;
+        namesToUpper = name -> name.toUpperCase();
+
+        System.out.println("5. UnaryOperator (print all names to uppercase");
+        for (final HockeyPlayer p : roster)
+        {
+            System.out.println(namesToUpper.apply(p.getFullName()));
+        }
+        // Space separator
+        System.out.println();
 
         /*
         6. Comparator
@@ -84,12 +94,41 @@ public class Main
         goals descending.
         - Sort the roster and print the results.
          */
+        System.out.println("6. Comparator -> Sort all players in descending num of goals");
+        final Comparator<HockeyPlayer> hockeyPlayerComparator;
+        hockeyPlayerComparator = (p, o) -> o.getGoalsScored() - p.getGoalsScored();
+        System.out.println("BEFORE sort:");
+        for (final HockeyPlayer p : roster)
+        {
+            System.out.println(p.getFullName() + " goals: " + p.getGoalsScored());
+        }
+        System.out.println();
+
+        Collections.sort(roster, hockeyPlayerComparator);
+
+        System.out.println("AFTER sort:");
+        for (final HockeyPlayer p : roster)
+        {
+            System.out.println(p.getFullName() + " goals: " + p.getGoalsScored());
+        }
+        // Space separator
+        System.out.println();
 
         /*
         7. Aggregation (loop-based)
         - Using a plain loop, calculate and print the team’s total goals.
         */
+        System.out.println("7. Aggregation (loop-based)");
+        int totalGoals;
+        totalGoals = 0;
 
+        for (final HockeyPlayer p : roster)
+        {
+            totalGoals += p.getGoalsScored();
+        }
+        System.out.println("Team total goals = " + totalGoals);
+        // Space separator
+        System.out.println();
         /*
         8. Custom Functional Interface
         - Define your own @FunctionalInterface called EligibilityRule.

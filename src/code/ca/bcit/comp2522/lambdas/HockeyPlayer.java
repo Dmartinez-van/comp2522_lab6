@@ -18,7 +18,7 @@ public class HockeyPlayer
 
     // Position strings should be enums
     private static final String FORWARD = "F";
-    private static final String DEFENCE = "B";
+    private static final String DEFENCE = "D";
     private static final String GOALIE  = "G";
 
 
@@ -92,8 +92,8 @@ public class HockeyPlayer
     {
         checkString(position);
 
-        if (!position.equalsIgnoreCase(FORWARD) ||
-            !position.equalsIgnoreCase(DEFENCE) ||
+        if (!position.equalsIgnoreCase(FORWARD) &&
+            !position.equalsIgnoreCase(DEFENCE) &&
             !position.equalsIgnoreCase(GOALIE))
         {
             throw new  IllegalArgumentException("position must be either 'F' or 'D' or 'G'");
