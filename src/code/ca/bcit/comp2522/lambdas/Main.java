@@ -77,10 +77,11 @@ public class Main
         - Write a UnaryOperator<String> that converts a string to uppercase.
         - Use it to print all player names in uppercase.
         */
+        System.out.println("5. UnaryOperator (print all names to uppercase");
+
         final UnaryOperator<String> namesToUpper;
         namesToUpper = name -> name.toUpperCase();
 
-        System.out.println("5. UnaryOperator (print all names to uppercase");
         for (final HockeyPlayer p : roster)
         {
             System.out.println(namesToUpper.apply(p.getFullName()));
@@ -95,8 +96,10 @@ public class Main
         - Sort the roster and print the results.
          */
         System.out.println("6. Comparator -> Sort all players in descending num of goals");
+
         final Comparator<HockeyPlayer> hockeyPlayerComparator;
         hockeyPlayerComparator = (p, o) -> o.getGoalsScored() - p.getGoalsScored();
+
         System.out.println("BEFORE sort:");
         for (final HockeyPlayer p : roster)
         {
@@ -119,6 +122,7 @@ public class Main
         - Using a plain loop, calculate and print the team’s total goals.
         */
         System.out.println("7. Aggregation (loop-based)");
+
         int totalGoals;
         totalGoals = 0;
 
