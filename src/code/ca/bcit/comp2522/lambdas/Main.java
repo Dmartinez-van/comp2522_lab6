@@ -36,13 +36,69 @@ public class Main
      */
     public static void main(final String[] args)
     {
-        final int currentYear = 2025;
+        final int currentYear;
         final HockeyTeam team;
         final List<HockeyPlayer> roster;
 
+        currentYear = 2025;
         team = sampleTeam();
         roster = team.getRoster();
+
+        // 1. Write a Supplier
+        /*
+        - Write a Supplier<HockeyPlayer> that creates a “call-up” player (a new
+        HockeyPlayer instance).
+        - Add this new player to the team’s roster.
+         */
+
+        /*
+        2. Predicate
+        - Write a Predicate<HockeyPlayer> that checks if a player is a Forward.
+        - Write another Predicate<HockeyPlayer> that checks if a player has 20 or
+        more goals.
+        - Use these predicates in a loop to print only forwards with 20+ goals.
+        */
+
+        /*
+        3. Function
+        - Write a Function<HockeyPlayer, String> that maps a player to a label string,
+        e.g.:
+        - Alex Morgan — 21G
+        */
+
+        /*
+        4. Consumer
+        - Write a Consumer<HockeyPlayer> that prints just the player’s name.
+        - Loop through the roster and apply it.
+        */
+
+        /*
+        5. UnaryOperator
+        - Write a UnaryOperator<String> that converts a string to uppercase.
+        - Use it to print all player names in uppercase.
+        */
+
+        /*
+        6. Comparator
+        - Write a Comparator<HockeyPlayer> (as a lambda) that sorts players by
+        goals descending.
+        - Sort the roster and print the results.
+         */
+
+        /*
+        7. Aggregation (loop-based)
+        - Using a plain loop, calculate and print the team’s total goals.
+        */
+
+        /*
+        8. Custom Functional Interface
+        - Define your own @FunctionalInterface called EligibilityRule.
+        It should declare a method:
+        - boolean test(HockeyPlayer player, int minAge, int minGoals, int currentYear);
+        - Implement it with a lambda that says a player is eligible if:
+            > their age (derived from yearOfBirth) is at least minAge
+            > and they have at least minGoals.
+        - Test it by printing all eligible players when minAge = 20 and minGoals = 15
+         */
     }
-
-
 }
