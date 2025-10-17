@@ -1,7 +1,10 @@
 package ca.bcit.comp2522.lambdas;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.function.UnaryOperator;
+import java.util.Comparator;
 
 /**
  * Main class for running tests for comp 2522 lab 6
@@ -128,11 +131,12 @@ public class Main
 
         for (final HockeyPlayer p : roster)
         {
-            totalGoals += p.getGoalsScored();
+            totalGoals += p.getGoalsScored(); //TODO: He prob wants some sort of use of lambda here instead of a running total.
         }
         System.out.println("Team total goals = " + totalGoals);
         // Space separator
         System.out.println();
+
         /*
         8. Custom Functional Interface
         - Define your own @FunctionalInterface called EligibilityRule.
@@ -143,5 +147,44 @@ public class Main
             > and they have at least minGoals.
         - Test it by printing all eligible players when minAge = 20 and minGoals = 15
          */
+        System.out.println("8. Custom Functional Interface, EligibilityRule interface:");
+        final int minAge;
+        final int minGoals;
+        EligibilityRule eligiblePlayer;
+
+        minAge   = 20;
+        minGoals = 15;
+
+        eligiblePlayer = (player,
+                          ageReq, goalsReq,
+                          year) ->
+        {
+            final int playerAge;
+            playerAge = year - player.getYearOfBirth();
+
+            if (player.getGoalsScored() < goalsReq)
+            {
+                return false;
+            }
+
+            if (playerAge < ageReq)
+            {
+                return false;
+            }
+
+            return true;
+        };
+
+        for (final HockeyPlayer p : roster)
+        {
+            final String statement;
+            statement = eligiblePlayer.test(p, minAge, minGoals, currentYear) ? "\b" : "NOT";
+
+            System.out.println("Player '"       +
+                                p.getFullName() +
+                                "' is "         +
+                                statement       +
+                                " eligible");
+        }
     }
 }
