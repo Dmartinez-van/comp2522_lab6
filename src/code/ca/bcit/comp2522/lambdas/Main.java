@@ -3,10 +3,7 @@ package ca.bcit.comp2522.lambdas;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.function.BiFunction;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 import java.util.Comparator;
 
 /**
@@ -25,12 +22,16 @@ public class Main
      */
     private static HockeyTeam sampleTeam() {
         final List<HockeyPlayer> ps;
+        final String forward = "F";
+        final String defence = "D";
+        final String goalie  = "G";
+
         ps = new ArrayList<>();
-        ps.add(new HockeyPlayer("Alex Morgan", "F", 2002, 21));
-        ps.add(new HockeyPlayer("Ben Carter", "D", 1999, 6));
-        ps.add(new HockeyPlayer("Casey Young", "F", 2004, 28));
-        ps.add(new HockeyPlayer("Drew Singh", "G", 2000, 0));
-        ps.add(new HockeyPlayer("Eva Chen", "D", 2001, 5));
+        ps.add(new HockeyPlayer("Alex Morgan", forward, 2002, 21));
+        ps.add(new HockeyPlayer("Ben Carter",  defence, 1999, 6));
+        ps.add(new HockeyPlayer("Casey Young", forward, 2004, 28));
+        ps.add(new HockeyPlayer("Drew Singh",  goalie,  2000, 0));
+        ps.add(new HockeyPlayer("Eva Chen",    defence, 2001, 5));
 
         return new HockeyTeam("BCIT Blizzards", ps);
     }
@@ -56,6 +57,7 @@ public class Main
         HockeyPlayer instance).
         - Add this new player to the team’s roster.
          */
+        System.out.println("1. Supplier - call-up player (creates new player)");
         final String fullName;
         final String position;
         final int yearOfBirth;
@@ -81,9 +83,24 @@ public class Main
         more goals.
         - Use these predicates in a loop to print only forwards with 20+ goals.
         */
+        System.out.println("2. Predicate - checks for forward and checks for >= 20 goals");
         final Predicate<HockeyPlayer> isForward;
         final Predicate<HockeyPlayer> hasTwentyPlusGoals;
 
+        // TODO: Can i have those magic values in lambdas?
+        isForward = p -> p.getPosition().equalsIgnoreCase("F");
+        hasTwentyPlusGoals = p -> p.getGoalsScored() >= 20;
+
+        System.out.println("Printing players that are forwards AND have >= 20 goals");
+        for (final HockeyPlayer p : roster)
+        {
+            if (isForward.test(p) && hasTwentyPlusGoals.test(p))
+            {
+                System.out.println(p.getFullName());
+                System.out.println(p.getPosition());
+                System.out.println(p.getGoalsScored());
+            }
+        }
 
         // Space separator
         System.out.println();
@@ -94,6 +111,15 @@ public class Main
         e.g.:
         - Alex Morgan — 21G
         */
+        System.out.println("3. Function - Applies label to player");
+        final Function<HockeyPlayer, String> labeler;
+        labeler = (p) -> p.getFullName() + " - " + p.getGoalsScored() + " Goals";
+
+        System.out.println("Printing players with a label of how many goals they have:");
+        for (final HockeyPlayer p : roster)
+        {
+            System.out.println(labeler.apply(p));
+        }
 
         // Space separator
         System.out.println();
@@ -103,6 +129,14 @@ public class Main
         - Write a Consumer<HockeyPlayer> that prints just the player’s name.
         - Loop through the roster and apply it.
         */
+        System.out.println("4. Consumer - Prints player's name");
+        final Consumer<HockeyPlayer> namePrinter;
+        namePrinter = p -> System.out.println(p.getFullName());
+
+        for (final HockeyPlayer p : roster)
+        {
+            namePrinter.accept(p);
+        }
 
         // Space separator
         System.out.println();
@@ -112,7 +146,7 @@ public class Main
         - Write a UnaryOperator<String> that converts a string to uppercase.
         - Use it to print all player names in uppercase.
         */
-        System.out.println("5. UnaryOperator (print all names to uppercase");
+        System.out.println("5. UnaryOperator - print all names to uppercase");
 
         final UnaryOperator<String> namesToUpper;
         namesToUpper = name -> name.toUpperCase();
@@ -130,7 +164,7 @@ public class Main
         goals descending.
         - Sort the roster and print the results.
          */
-        System.out.println("6. Comparator -> Sort all players in descending num of goals");
+        System.out.println("6. Comparator - Sort all players in descending num of goals");
 
         final Comparator<HockeyPlayer> hockeyPlayerComparator;
         hockeyPlayerComparator = (p, o) -> o.getGoalsScored() - p.getGoalsScored();
