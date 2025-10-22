@@ -71,6 +71,9 @@ public class Main
 
         roster.add(callUp.get());
 
+        // Space separator
+        System.out.println();
+
         /*
         2. Predicate
         - Write a Predicate<HockeyPlayer> that checks if a player is a Forward.
@@ -82,7 +85,8 @@ public class Main
         final Predicate<HockeyPlayer> hasTwentyPlusGoals;
 
 
-
+        // Space separator
+        System.out.println();
 
         /*
         3. Function
@@ -91,11 +95,17 @@ public class Main
         - Alex Morgan — 21G
         */
 
+        // Space separator
+        System.out.println();
+
         /*
         4. Consumer
         - Write a Consumer<HockeyPlayer> that prints just the player’s name.
         - Loop through the roster and apply it.
         */
+
+        // Space separator
+        System.out.println();
 
         /*
         5. UnaryOperator
