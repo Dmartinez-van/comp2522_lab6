@@ -3,8 +3,13 @@ package ca.bcit.comp2522.lambdas;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.function.*;
 import java.util.Comparator;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
+import java.util.function.BiFunction;
 
 /**
  * Main class for running tests for comp 2522 lab 6
@@ -15,6 +20,11 @@ import java.util.Comparator;
  */
 public class Main
 {
+    final static int    HIGH_SCORING_THRESHOLD = 20;
+    final static String FORWARD = "F";
+    final static String DEFENCE = "D";
+    final static String GOALIE  = "G";
+
     /**
      * Returns a new sample team
      *
@@ -22,16 +32,13 @@ public class Main
      */
     private static HockeyTeam sampleTeam() {
         final List<HockeyPlayer> ps;
-        final String forward = "F";
-        final String defence = "D";
-        final String goalie  = "G";
 
         ps = new ArrayList<>();
-        ps.add(new HockeyPlayer("Alex Morgan", forward, 2002, 21));
-        ps.add(new HockeyPlayer("Ben Carter",  defence, 1999, 6));
-        ps.add(new HockeyPlayer("Casey Young", forward, 2004, 28));
-        ps.add(new HockeyPlayer("Drew Singh",  goalie,  2000, 0));
-        ps.add(new HockeyPlayer("Eva Chen",    defence, 2001, 5));
+        ps.add(new HockeyPlayer("Alex Morgan", FORWARD, 2002, 21));
+        ps.add(new HockeyPlayer("Ben Carter",  DEFENCE, 1999, 6));
+        ps.add(new HockeyPlayer("Casey Young", FORWARD, 2004, 28));
+        ps.add(new HockeyPlayer("Drew Singh",  GOALIE,  2000, 0));
+        ps.add(new HockeyPlayer("Eva Chen",    DEFENCE, 2001, 5));
 
         return new HockeyTeam("BCIT Blizzards", ps);
     }
@@ -87,9 +94,8 @@ public class Main
         final Predicate<HockeyPlayer> isForward;
         final Predicate<HockeyPlayer> hasTwentyPlusGoals;
 
-        // TODO: Can i have those magic values in lambdas?
-        isForward = p -> p.getPosition().equalsIgnoreCase("F");
-        hasTwentyPlusGoals = p -> p.getGoalsScored() >= 20;
+        isForward = p -> p.getPosition().equalsIgnoreCase(FORWARD);
+        hasTwentyPlusGoals = p -> p.getGoalsScored() >= HIGH_SCORING_THRESHOLD;
 
         System.out.println("Printing players that are forwards AND have >= 20 goals");
         for (final HockeyPlayer p : roster)
