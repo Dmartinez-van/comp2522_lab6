@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.Comparator;
 
@@ -57,18 +56,18 @@ public class Main
         HockeyPlayer instance).
         - Add this new player to the team’s roster.
          */
-        final String name;
+        final String fullName;
         final String position;
         final int yearOfBirth;
         final int goalsScored;
         final Supplier<HockeyPlayer> callUp;
 
-        name = "John Smith";
+        fullName = "John Smith";
         position = "F";
         yearOfBirth = 2000;
         goalsScored = 0;
 
-        callUp = () -> new HockeyPlayer(name, position, yearOfBirth, goalsScored);
+        callUp = () -> new HockeyPlayer(fullName, position, yearOfBirth, goalsScored);
 
         roster.add(callUp.get());
 
