@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.Comparator;
 
@@ -147,14 +149,20 @@ public class Main
         */
         System.out.println("7. Aggregation (loop-based)");
 
-        int totalGoals;
-        totalGoals = 0;
+        final BiFunction<Integer, Integer, Integer> goalAdder;
+        int goalSum = 0;
+
+        goalAdder  = (goals, runningTotal) -> goals + runningTotal;
 
         for (final HockeyPlayer p : roster)
         {
-            totalGoals += p.getGoalsScored(); //TODO: He prob wants some sort of use of lambda here instead of a running total.
+            final int playerGoals;
+            playerGoals = p.getGoalsScored();
+
+            goalSum = goalAdder.apply(playerGoals, goalSum);
         }
-        System.out.println("Team total goals = " + totalGoals);
+
+        System.out.println("Team total goals = " + goalSum);
         // Space separator
         System.out.println();
 
@@ -171,7 +179,7 @@ public class Main
         System.out.println("8. Custom Functional Interface, EligibilityRule interface:");
         final int minAge;
         final int minGoals;
-        EligibilityRule eligiblePlayer;
+        final EligibilityRule eligiblePlayer;
 
         minAge   = 20;
         minGoals = 15;
