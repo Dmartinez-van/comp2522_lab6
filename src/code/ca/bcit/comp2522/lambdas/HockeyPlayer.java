@@ -5,7 +5,7 @@ package ca.bcit.comp2522.lambdas;
  * Their full name [String],
  * The position [String] they play ("F"oward, "D"efence, or "G"oalie)
  * Their year of birth [int]
- * The amount of goals [int] they've scored
+ * The amount of goals [int] they've scored.
  *
  * @author David Martinez
  *         Daniel Do
@@ -15,6 +15,8 @@ public class HockeyPlayer
 {
     private static final int MIN_YEAR_OF_BIRTH = 1800;
     private static final int MAX_YEAR_OF_BIRTH = 2025;
+    private static final int MIN_ALLOWABLE_GOAL_COUNT = 0;
+    private static final int YEAR_ZERO = 0;
 
     // Position strings should be enums
     private static final String FORWARD = "F";
@@ -27,7 +29,7 @@ public class HockeyPlayer
     private final int    goalsScored;
 
     /**
-     * Full constructor
+     * Full constructor.
      *
      * @param fullName This player's full name
      * @param position This player's position ("F", "D", or "G")
@@ -56,7 +58,7 @@ public class HockeyPlayer
      */
     private void checkGoals(final int goalsScored)
     {
-        if (goalsScored < 0)
+        if (goalsScored < MIN_ALLOWABLE_GOAL_COUNT)
         {
             throw new IllegalArgumentException("goalsScored cannot be negative");
         }
@@ -68,7 +70,7 @@ public class HockeyPlayer
      */
     private void checkYearOfBirth(final int yearOfBirth)
     {
-        if (yearOfBirth < 0)
+        if (yearOfBirth < YEAR_ZERO)
         {
             throw new IllegalArgumentException("yearOfBirth cannot be negative");
         }

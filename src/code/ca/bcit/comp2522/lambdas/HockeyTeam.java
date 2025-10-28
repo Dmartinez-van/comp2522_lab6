@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Represents a hockey team
  * Has a team name (String)
- * Has a team rooster (List)
+ * Has a team rooster (List).
  *
  * @author David Martinez
  *         Daniel Do
@@ -18,7 +18,7 @@ public class HockeyTeam
     private final List<HockeyPlayer> teamRooster;
 
     /**
-     * Full constructor
+     * Full constructor.
      *
      * @param teamName This team's name
      */
