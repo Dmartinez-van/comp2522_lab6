@@ -2,8 +2,8 @@ package ca.bcit.comp2522.lambdas;
 
 /**
  * Represents a hockey player with Their full name,
- * the position they play, ("F"oward, "D"efence, or "G"oalie)
- * their year of birth, and the amount of goals they've scored.
+ * the position they play, their year of birth,
+ * and the amount of goals they've scored.
  *
  * @author David Martinez
  * @author Daniel Do
@@ -30,7 +30,7 @@ public class HockeyPlayer
      * Full constructor.
      *
      * @param fullName This player's full name
-     * @param position This player's position ("F", "D", or "G")
+     * @param position This player's position
      * @param yearOfBirth This player's year of birth
      * @param goalsScored This player's amount of goals scored
      */

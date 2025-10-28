@@ -5,10 +5,10 @@ package ca.bcit.comp2522.lambdas;
  * the following rules: </br>
  * <ul>
  *     <li>
- *         Player is above a minimum age
+ *         Player is above a minimum age.
  *     </li>
  *     <li>
- *         Player has at least a certain amount of goals
+ *         Player has at least a certain amount of goals.
  *     </li>
  * </ul>
  *
