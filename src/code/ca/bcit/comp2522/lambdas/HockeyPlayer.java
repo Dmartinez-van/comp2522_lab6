@@ -34,8 +34,8 @@ public class HockeyPlayer
      * @param yearOfBirth This player's year of birth
      * @param goalsScored This player's amount of goals scored
      */
-    HockeyPlayer(final String fullName,
-                 final String position,
+    HockeyPlayer(final     String fullName,
+                 final     String position,
                  final int yearOfBirth,
                  final int goalsScored)
     {
@@ -63,7 +63,8 @@ public class HockeyPlayer
     }
 
     /*
-    Check year of birth, we only care about those born after 1800
+    Check year of birth, we only care about those born after
+    MIN_YEAR_OF_BIRTH and before MAX_YEAR_OF_BIRTH
     Throws new IllegalArgumentException
      */
     private static void checkYearOfBirth(final int yearOfBirth)
@@ -83,8 +84,8 @@ public class HockeyPlayer
     }
 
     /*
-    Check for null string and blankness, invalid if true
-    Check for valid position, must be in set of {"F", "D", "G"}
+    Check for null string and blankness, invalid if true.
+    Check for valid position.
     Throws new IllegalArgumentException
      */
     private static void checkPosition(final String position)
@@ -95,7 +96,7 @@ public class HockeyPlayer
             !position.equalsIgnoreCase(DEFENCE) &&
             !position.equalsIgnoreCase(GOALIE))
         {
-            throw new  IllegalArgumentException("position must be either 'F' or 'D' or 'G'");
+            throw new IllegalArgumentException("position must be either 'F' or 'D' or 'G'");
         }
     }
 
