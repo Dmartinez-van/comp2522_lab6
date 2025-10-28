@@ -20,10 +20,12 @@ import java.util.function.BiFunction;
  */
 public class Main
 {
-    final static int    HIGH_SCORING_THRESHOLD = 20;
-    final static String FORWARD = "F";
-    final static String DEFENCE = "D";
-    final static String GOALIE  = "G";
+    private static final int MIN_ALLOWABLE_AGE = 20;
+    private static final int MIN_GOALS_THRESHOLD = 15;
+    private static final int HIGH_SCORING_THRESHOLD = 20;
+    static final String FORWARD = "F";
+    static final String DEFENCE = "D";
+    static final String GOALIE  = "G";
 
     /**
      * Returns a new sample team
@@ -92,15 +94,15 @@ public class Main
         */
         System.out.println("2. Predicate - checks for forward and checks for >= 20 goals");
         final Predicate<HockeyPlayer> isForward;
-        final Predicate<HockeyPlayer> hasTwentyPlusGoals;
+        final Predicate<HockeyPlayer> highScorer;
 
         isForward = p -> p.getPosition().equalsIgnoreCase(FORWARD);
-        hasTwentyPlusGoals = p -> p.getGoalsScored() >= HIGH_SCORING_THRESHOLD;
+        highScorer = p -> p.getGoalsScored() >= HIGH_SCORING_THRESHOLD;
 
         System.out.println("Printing players that are forwards AND have >= 20 goals");
         for (final HockeyPlayer p : roster)
         {
-            if (isForward.test(p) && hasTwentyPlusGoals.test(p))
+            if (isForward.test(p) && highScorer.test(p))
             {
                 System.out.println(p.getFullName());
                 System.out.println(p.getPosition());
@@ -230,8 +232,8 @@ public class Main
         final int minGoals;
         final EligibilityRule eligiblePlayer;
 
-        minAge   = 20;
-        minGoals = 15;
+        minAge   = MIN_ALLOWABLE_AGE;
+        minGoals = MIN_GOALS_THRESHOLD;
 
         eligiblePlayer = (player,
                           ageReq, goalsReq,
