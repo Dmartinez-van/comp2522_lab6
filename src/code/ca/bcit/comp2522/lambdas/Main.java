@@ -15,7 +15,7 @@ import java.util.function.BiFunction;
  * Main class for running tests for comp 2522 lab 6
  *
  * @author David Martinez
- *         Daniel Do
+ * @author Daniel Do
  * @version 1.0
  */
 public class Main

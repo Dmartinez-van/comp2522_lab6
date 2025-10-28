@@ -6,7 +6,7 @@ package ca.bcit.comp2522.lambdas;
  * their year of birth, and the amount of goals they've scored.
  *
  * @author David Martinez
- *         Daniel Do
+ * @author Daniel Do
  * @version 1.0
  */
 public class HockeyPlayer
@@ -54,7 +54,7 @@ public class HockeyPlayer
     Checks goals for negative, if goals negative it is invalid
     Throws new IllegalArgumentException
      */
-    private void checkGoals(final int goalsScored)
+    private static void checkGoals(final int goalsScored)
     {
         if (goalsScored < MIN_ALLOWABLE_GOAL_COUNT)
         {
@@ -66,7 +66,7 @@ public class HockeyPlayer
     Check year of birth, we only care about those born after 1800
     Throws new IllegalArgumentException
      */
-    private void checkYearOfBirth(final int yearOfBirth)
+    private static void checkYearOfBirth(final int yearOfBirth)
     {
         if (yearOfBirth < YEAR_ZERO)
         {
@@ -87,7 +87,7 @@ public class HockeyPlayer
     Check for valid position, must be in set of {"F", "D", "G"}
     Throws new IllegalArgumentException
      */
-    private void checkPosition(final String position)
+    private static void checkPosition(final String position)
     {
         checkString(position);
 
@@ -103,7 +103,7 @@ public class HockeyPlayer
     Check for null string and blankness, invalid if true
     Throws new IllegalArgumentException
      */
-    private void checkString(final String s)
+    private static void checkString(final String s)
     {
         if (s == null || s.isBlank())
         {

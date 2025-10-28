@@ -13,7 +13,7 @@ package ca.bcit.comp2522.lambdas;
  * </ul>
  *
  * @author David Martinez
- *         Daniel Do
+ * @author Daniel Do
  * @version 1.0
  */
 @FunctionalInterface

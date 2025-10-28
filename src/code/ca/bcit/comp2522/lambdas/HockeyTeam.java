@@ -1,6 +1,5 @@
 package ca.bcit.comp2522.lambdas;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +8,7 @@ import java.util.List;
  * Has a team rooster (List).
  *
  * @author David Martinez
- *         Daniel Do
+ * @author Daniel Do
  * @version 1.0
  */
 public class HockeyTeam
@@ -37,7 +36,7 @@ public class HockeyTeam
     Check for null string and blankness, invalid if true
     Throws new IllegalArgumentException
      */
-    private void checkString(final String s)
+    private static void checkString(final String s)
     {
         if (s == null || s.isBlank())
         {
