@@ -21,7 +21,6 @@ public class HockeyPlayer
     private static final String DEFENCE = "D";
     private static final String GOALIE  = "G";
 
-
     private final String fullName;
     private final String position;
     private final int    yearOfBirth;
