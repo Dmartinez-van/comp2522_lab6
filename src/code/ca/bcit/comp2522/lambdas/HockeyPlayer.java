@@ -112,7 +112,8 @@ public class HockeyPlayer
     }
 
     /**
-     * Getter for full name
+     * Getter for full name.
+     *
      * @return this player's full name as String
      */
     public String getFullName()
@@ -121,7 +122,8 @@ public class HockeyPlayer
     }
 
     /**
-     * Getter for position
+     * Getter for position.
+     *
      * @return this player's position as String
      */
     public String getPosition()
@@ -130,7 +132,8 @@ public class HockeyPlayer
     }
 
     /**
-     * Getter for year of birth
+     * Getter for year of birth.
+     *
      * @return this player's year of birth as int
      */
     public int getYearOfBirth()
@@ -139,7 +142,8 @@ public class HockeyPlayer
     }
 
     /**
-     * Getter for position
+     * Getter for position.
+     *
      * @return this player's goals score as int
      */
     public int getGoalsScored()
