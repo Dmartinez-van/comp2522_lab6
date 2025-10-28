@@ -1,11 +1,9 @@
 package ca.bcit.comp2522.lambdas;
 
 /**
- * Represents a hockey player with
- * Their full name [String],
- * The position [String] they play ("F"oward, "D"efence, or "G"oalie)
- * Their year of birth [int]
- * The amount of goals [int] they've scored
+ * Represents a hockey player with Their full name,
+ * the position they play, ("F"oward, "D"efence, or "G"oalie)
+ * their year of birth, and the amount of goals they've scored.
  *
  * @author David Martinez
  *         Daniel Do
