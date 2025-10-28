@@ -18,9 +18,11 @@ public class HockeyTeam
     private final List<HockeyPlayer> teamRooster;
 
     /**
-     * Full constructor.
+     * Constructor for HockeyTeam that sets the
+     * team name and team roster.
      *
      * @param teamName This team's name
+     * @param teamRooster This team's roster
      */
     HockeyTeam(final String teamName,
                final List<HockeyPlayer> teamRooster)
@@ -44,7 +46,7 @@ public class HockeyTeam
     }
 
     /**
-     * Getter for team's roster
+     * Getter for the team's roster.
      *
      * @return the team roster list
      */
@@ -54,7 +56,7 @@ public class HockeyTeam
     }
 
     /**
-     * Getter for team name
+     * Getter for the team name.
      *
      * @return the team name as a string
      */

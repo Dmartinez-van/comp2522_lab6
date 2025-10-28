@@ -11,10 +11,10 @@ package ca.bcit.comp2522.lambdas;
  */
 public class HockeyPlayer
 {
-    private static final int MIN_YEAR_OF_BIRTH = 1800;
-    private static final int MAX_YEAR_OF_BIRTH = 2025;
+    private static final int MIN_YEAR_OF_BIRTH        = 1800;
+    private static final int MAX_YEAR_OF_BIRTH        = 2025;
     private static final int MIN_ALLOWABLE_GOAL_COUNT = 0;
-    private static final int YEAR_ZERO = 0;
+    private static final int YEAR_ZERO                = 0;
 
     // Position strings should be enums
     private static final String FORWARD = "F";
